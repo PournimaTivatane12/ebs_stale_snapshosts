@@ -9,10 +9,21 @@ This project focuses on identifying and cleaning up stale snapshots in the Amazo
 
 Features:
 
-Automated detection of stale EBS snapshots based on customizable criteria (e.g., age, tags).
-Integrated cleanup process to delete unused snapshots safely.
-Uses AWS SDK and Lambda for automation.
-Detailed logging for audit and monitoring purposes.
-Easy deployment with Terraform or CloudFormation templates.
+1. Automated detection of stale EBS snapshots based on customizable criteria (e.g., age, tags).
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/d814276b-80aa-4aa6-9d93-6a2eb4ca7eec/bdf0e324-aa18-4f7d-bfa4-fb0291aa3253/image.png)
+2. Integrated cleanup process to delete unused snapshots safely.
+
+3. Uses AWS SDK and Lambda for automation.
+
+4. Detailed logging for audit and monitoring purposes.
+
+5. Easy deployment with Terraform or CloudFormation templates.
+
+![image](https://github.com/user-attachments/assets/0d61d10b-3ade-4fc7-a17c-77f4cf7fd981)
+
+![image](https://github.com/user-attachments/assets/a6436a7a-e56e-46b9-b208-3cf91f7fc036)
+
+![image](https://github.com/user-attachments/assets/352d9777-b8f3-4bda-b41d-d6d134709369)
+
+
+
