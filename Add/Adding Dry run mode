@@ -1,0 +1,35 @@
+import boto3
+from datetime import datetime, timezone, timedelta
+import argparse
+
+def get_stale_snapshots(days):
+    ec2 = boto3.client('ec2')
+    snapshots = ec2.describe_snapshots(OwnerIds=['self'])['Snapshots']
+    threshold_date = datetime.now(timezone.utc) - timedelta(days=days)
+    
+    stale_snapshots = [
+        snap for snap in snapshots
+        if snap['StartTime'] < threshold_date
+    ]
+    return stale_snapshots
+
+def delete_snapshots(snapshots, dry_run=False):
+    ec2 = boto3.client('ec2')
+    for snap in snapshots:
+        snapshot_id = snap['SnapshotId']
+        if dry_run:
+            print(f"[DRY RUN] Would delete snapshot: {snapshot_id}")
+        else:
+            ec2.delete_snapshot(SnapshotId=snapshot_id)
+            print(f"Deleted snapshot: {snapshot_id}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Delete stale EBS snapshots")
+    parser.add_argument('--days', type=int, default=30, help='Threshold in days to consider snapshot stale')
+    parser.add_argument('--dry-run', action='store_true', help='Only print what would be deleted')
+
+    args = parser.parse_args()
+
+    stale_snaps = get_stale_snapshots(args.days)
+    print(f"Found {len(stale_snaps)} stale snapshots older than {args.days} days.")
+    delete_snapshots(stale_snaps, dry_run=args.dry_run)
