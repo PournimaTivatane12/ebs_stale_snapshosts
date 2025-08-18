@@ -1,6 +1,6 @@
-# AWS Cloud Cost Optimization - Identifying Stale Resources
+# AWS Cloud Cost Optimization - Identifying Stale Resources: Identifying Stale EBS Snapshots
 
-# Identifying Stale EBS Snapshots
+# Architecture Diagram
 
 <img width="1536" height="1024" alt="generated-image" src="https://github.com/user-attachments/assets/77e35be6-ca87-4766-a4d2-07e4132b86fb" />
 
