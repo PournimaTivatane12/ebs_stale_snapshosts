@@ -2,6 +2,8 @@
 
 # Identifying Stale EBS Snapshots
 
+<img width="1536" height="1024" alt="generated-image" src="https://github.com/user-attachments/assets/77e35be6-ca87-4766-a4d2-07e4132b86fb" />
+
 In this example, we'll create a Lambda function that identifies EBS snapshots that are no longer associated with any active EC2 instance and deletes them to save on storage costs.
 
 Description:
